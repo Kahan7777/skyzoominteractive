@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/cs
+        s2?family=Roboto+Condensed:wght@300;400
+        ;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/main.css">
+        <style>
+            .navigation{
+    width:100%;
+    margin: 0;
+    padding: 0;
+    height:7vh;
+    background-color:#f7f7f7;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.main-logo{
+    margin-left:30px;
+    flex: 1;
+
+    display: flex;
+    
+}
+.contents{
+    flex:15;
+}
+.logo{
+    width:30px;
+    height:30px;
+}
+.main-logo-text{
+    font-size: 150%;
+}
+body{
+    margin:0;
+    padding:0;
+    background-color: #ececec;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.spacer{
+    flex:4;
+}
+.content-item{
+    text-decoration: none;
+    color:#bb9393;
+    font-size: 120%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+a:hover{
+    animation-name: link;
+    animation-duration: 2s;
+}
+@keyframes link {
+    from{border-bottom:1px solid rgba(0,0,0,0)}
+    to{border-bottom: 1px solid rgba(0,0,0,1)}
+}
+@keyframes linkk {
+    from{border-bottom:3px solid rgba(255, 255, 255, 0); background-color: aqua;}
+    to{border-bottom: 3px solid rgb(255, 255, 255); background-color: aqua;}
+}
+.main{
+    text-align: center;
+    height:40vh;
+    margin-left: 15%;
+    margin-right:15%;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 1px 1px 6px rgb(94, 94, 94);
+    display: flex;
+    
+}
+.center{
+    text-align: center;
+}
+.uppad{
+    margin-top:60px;
+}
+
+.division-left{
+    text-align: left;
+    flex:55;
+}
+.division-right{
+    flex:45;
+    background-image: url(/static/travel.png);
+}
+.main-text{
+    letter-spacing: 1px;
+    font-size:250%;
+    margin-left:50px;
+    color:rgb(187, 147, 147);
+}
+.main-text-division{
+    font-size:100%;
+    font-weight:100;
+    color: rgba(0,0,0,1);
+    border-bottom:4px solid rgb(187, 147, 147);
+}
+.main-text:hover{
+    animation: 2s text forwards;
+    animation-timing-function: cubic-bezier(0, 0.10, 1);
+}
+@keyframes text {
+    0%   {letter-spacing:1px;}
+    50%  {letter-spacing:6px;}
+    100% {letter-spacing:1px;}
+}
+.info-text{
+    font-weight: lighter;
+    margin-left: 50px;
+    width:300px;
+}
+.get-started{
+    width:20%;
+    margin-left:40%;
+    margin-right: 40%;
+    text-align: center;
+    padding-top: 100px;
+    font-size: 25px;
+    text-decoration: none;
+    color:white;
+}
+.get-started-button{
+    text-decoration: none;
+    color:white;
+    padding:10px;
+    background-color: aqua;
+    border-radius: 3px;
+    
+}
+.get-started-button-text{
+    text-decoration: none;
+    color: white;
+}
+.get-started-button-text:hover{
+    animation: 2s linkk forwards;
+    animation-timing-function: cubic-bezier(0, 0.10, 1);
+}
+.is-invalid{
+    background-color: rgba(255, 68, 0, 0.329);
+}
+
+        </style>
+    </head>
+</head>
+<body>
+    <section class="navigation">
+        <div class="main-logo">
+            <img src="/static/logo.png" alt="" class="logo">
+        </div>
+        <div class="main-logo-text">
+            <p style="border-bottom: 2px solid rgb(187, 147, 147);">SKYZoom</p>
+        </div>
+        <div class="spacer"></div>
+        <div class="contents">
+            <a href="#" class="content-item">Creators!</a>
+            <a href="#" class="content-item">HowToUse!</a>
+            <a href="#" class="content-item">Conditions!</a>
+        </div>
+
+    </section>
+    <div class="center">
+    <section class="main uppad">
+        <fieldset class="form-group">
+            <h1>Enter Data!</h1>
+            <div class="form-group">
+                {{ form.DCODE.label(class="form-control-label") }}
+                
+                {% if form.DCODE.errors %}
+                    {{ form.DCODE(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.DCODE.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.DCODE(class="form-control form-control-lg") }}
+                {% endif %}
+                
+            </div>
+            <div class="form-group">
+                {{ form.ACODE.label(class="form-control-label") }}
+
+                {% if form.ACODE.errors %}
+                    {{ form.ACODE(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.ACODE.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.ACODE(class="form-control form-control-lg") }}
+                {% endif %}
+                
+            </div>
+            <div class="form-group">
+                {{ form.DAY.label(class="form-control-label") }}
+
+                {% if form.DAY.errors %}
+                    {{ form.DAY(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.DAY.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.DAY(class="form-control form-control-lg") }}
+                {% endif %}
+                
+            </div>
+            <div class="form-group">
+                {{ form.MONTH.label(class="form-control-label") }}
+
+                {% if form.MONTH.errors %}
+                    {{ form.MONTH(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.MONTH.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.MONTH(class="form-control form-control-lg") }}
+                {% endif %}
+                
+            </div>
+            <div class="form-group">
+                {{ form.YEAR.label(class="form-control-label") }}
+
+                {% if form.YEAR.errors %}
+                    {{ form.YEAR(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.YEAR.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.YEAR(class="form-control form-control-lg") }}
+                {% endif %}
+                
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.SUBMIT(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+    </section>
+    </div>
+    <section class="get-started">
+        <span class="get-started-button"><a href="#" class="get-started-button-text">Get Started!</a></span>
+    </section>
+</body>
+</html>    

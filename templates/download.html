@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+
+        }
+        nav{
+            background-color: #f2f2f2;
+            height: 8vh;
+            width:100%;
+            display: flex;
+            align-items:center;
+            justify-content: space-around;
+        }
+        .nav-heading-text{
+            flex:2;
+            font-weight: 600;
+            margin-left: 69px;
+        }
+        .nav-link{
+            text-decoration: none;
+            color: rgb(66, 66, 66);
+            font-weight: 300;
+            flex:1;
+        }
+        .nav-main-links-holder{
+            flex:1;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        main{
+            margin:40px;
+
+        }
+        .left-main{
+            flex:1;
+            margin-right:100px;
+            height: 80vh;
+            background-color: #f3f3f3;
+        }
+        .right-main{
+            flex:1;
+            height: 80vh;
+        }
+        .left-main-title{
+            margin-top:50px;
+            margin-bottom: 50px;
+            padding-left:50px;
+            width: 100%;
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+        .left-main-title-text{
+            position: relative;
+            font-weight: lighter;
+        }
+        .left-main-title-text-bold{
+            font-weight: normal;
+        }
+        .left-main-underline{
+            width: 250px;
+            height: 3.5vh;
+            background-color: #ff9900;
+            position: absolute;
+            left: 340px;
+            top: 180px;
+            z-index: 0;
+        }
+        .left-main-body{
+            margin-top:30px;
+            width: 300px;
+            font-size: 30px;
+            font-weight: 300;
+            
+        }
+        .left-main-button{
+            padding: 10px;
+            margin-top: 200px;
+            background-color: #ff9900;
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 20px;
+        }
+        .right-main-img{
+            height: 100%;
+            width: 100%;
+        }
+        ::-webkit-scrollbar{
+            width:10px;
+            background-color: #ff9900;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #f3f3f3;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background-color: #a1a1a1;
+        }
+        @media screen and (max-width:1200px){
+            .left-main-underline {
+                display: none;
+            }
+            
+            .left-main{
+                width: 100%;
+                margin-bottom: 50px;
+                padding: 0;
+            }
+            body{
+                overflow-x: hidden;
+            }
+
+        }
+        main{
+            text-align: center;
+            align-items: center;
+            align-content: center;
+        }
+        .title{
+            background-color: #f3f3f3;
+            width: 60%;
+            height: 10vh;
+            padding-top: 5px;
+            padding-bottom:5px;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .title-text{
+            font-weight: 400;
+            color: black;
+            text-align: center;
+            font-size: 30px;
+        }
+        .download-options{
+            display:flex;
+            width: 100%;
+            margin-top: 200px;
+            height: 50vh;
+        }
+        .option{
+            flex: 1;
+        }
+        .option-img{
+            width: 200px;
+            height: 200px;
+            margin-left: 10%;
+            margin-right: 10%;
+            filter: invert(89%) sepia(22%) saturate(0%) hue-rotate(211deg) brightness(84%) contrast(81%);
+
+        }
+        .option-img:hover{
+            animation-name: example;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            
+        }
+        @keyframes example {
+            0% {filter: invert(89%) sepia(22%) saturate(0%) hue-rotate(211deg) brightness(84%) contrast(81%);}
+            100% {filter: invert(27%) sepia(95%) saturate(3439%) hue-rotate(204deg) brightness(96%) contrast(106%);}
+        }
+        .option-text{
+            font-size: 25px;
+            color: #000000;
+            font-weight: 200;
+
+        }
+        @media screen and (max-width: 800px){
+            .download-options{
+                flex-direction: column;
+            }
+            .option{
+                margin-bottom: 100px;
+            }
+        }
+        .download{
+            text-decoration: none;
+            color: blanchedalmond;
+            background-color: #ff9900;
+            padding: 10px;
+            margin-top: 10p
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-heading">
+            <h2 class='nav-heading-text'>SKYZoom</h2>
+        </div>
+        <div class="nav-main-links-holder">
+            <p class="nav-main-links"><a href="/" class="nav-link">Home</a></p>
+        <p class="nav-main-links"><a href="/download" class="nav-link">Download</a></p>
+        </div>
+    </nav>
+    <main>
+        <div class="title">
+            <h1 class="title-text">Download</h1>
+        </div>
+        <div class="download-options">
+            <div class="windows option">
+                <img src="/static/windows-brands.svg" alt="" class="option-img">
+                <div class="option-text">For Windows.
+                
+                </div>
+                <br>
+                <a href="/static/SKYZoom (Win 64).exe" class="download">Download</a>
+        </div>
+    </main>
+</body>
+</html>

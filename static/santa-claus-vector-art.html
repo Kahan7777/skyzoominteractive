@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"946c1418eb",applicationID:"382742389"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="WaFZPqFJiL6qAXTywOLndW3WQ3oYi7E2kTOfZKMx">
+        <title>Santa Claus Vector Art | Free SVG</title>
+
+        <!-- Meta -->
+        <meta name="description" content="Vector graphics of Santa Claus. Old man in Santa Claus suit.">
+        <meta name="author" content="Vedran">
+                
+        <!-- Styles -->
+     
+              <link media="all" type="text/css" rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css    ">
+        
+        <!-- Check if the language is set to RTL, so apply the RTL layouts -->
+        <!-- Otherwise apply the normal LTR layouts -->
+                    <link media="all" type="text/css" rel="stylesheet" href="https://freesvg.org/css/frontend.css?id=0c93133572d9df596b19">
+        
+       <link media="all" type="text/css" rel="stylesheet" href="https://freesvg.org/js/select2/select2.min.css">
+        <script data-ad-client="ca-pub-4767662663033227" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Scripts -->
+        <script>
+            window.Laravel = {"csrfToken":"WaFZPqFJiL6qAXTywOLndW3WQ3oYi7E2kTOfZKMx"}        </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147217457-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147217457-1');
+</script>
+    
+    </head>
+    <body id="app-layout">
+        <div id="app">
+          
+                        <nav class="navbar navbar-expand-lg navbar-dark fixed-top black-bg">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsMain" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="https://freesvg.org"><img height="40px" src="/img/svg-logo-4.png"/></a>
+
+        <div class="collapse navbar-collapse" id="navbarsMain">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-link " href="https://freesvg.org">
+                   <i class="fa fa-home"></i>
+                </a>
+                <a class="nav-link "
+                   href="/pages/about-us">About</a>
+                
+                 <a class="nav-link" rel="nofollow" href="https://creativecommons.org/publicdomain/zero/1.0/ " target="_blank">License</a>
+              
+            
+                <a class="nav-link "
+                   href="/contact">Contact</a>
+               <a class="nav-link "
+                   href="https://forum.freesvg.org" target="_blank">Forum</a>
+            </div>
+
+            <div class="navbar-nav">
+            
+                
+                                   
+                     <a class="nav-link "
+                   href="https://freesvg.org/login">Login</a>
+               
+                                    <a class="nav-link "
+                   href="https://freesvg.org/register">Register</a>
+                     
+                                                        
+            </div>
+        </div>
+    </div>
+</nav>
+                        <section class="highlight">
+                    <div class="cover  bg-overlay-black-50" style="background-image: url(/img/detail-background-svg.jpg);    background-size: cover;" >
+        <div class="slider-content-middle">
+   <div class="container">
+     <div class="row">
+        <div class="col-lg-12 col-md-12">
+         <div class="slider-content text-center">
+           <h1 class="text-white mt-20 d-none d-lg-block"> Santa Claus Vector Art </h1>
+             <form action="/search/" method="POST">
+           <div class="row justify-content-center form pb-20 mt-50">
+           
+             <div class="col-md-5 ">
+                <input type="search" class="form-control"  name ="q" placeholder="Search here">
+           <p class="d-block mt-5 popular">Popular SVG vectors:  
+              <a href="https://freesvg.org/tag/Coronavirus">Coronavirus </a>,
+              <a href="https://freesvg.org/tag/Christmas">Christmas </a>,
+              <a href="https://freesvg.org/tag/cricut-svg">Cricut svg </a>,
+              <a href="https://freesvg.org/tag/Christmas-tree">Christmas tree </a>,
+             <a href="https://freesvg.org/tag/xmas">Xmas </a>,
+              <a href="https://freesvg.org/search?query=svg%20cut&q=svg%20cut">Svg cut file </a>
+           </p>
+             </div>
+             <div class="col-lg-2 col-sm-3 col-xs-12 mt-sm-20">
+             <input type="submit" class="button btn-block" value="Search">
+             </div>
+            
+           <input type="hidden" name="_token" value="WaFZPqFJiL6qAXTywOLndW3WQ3oYi7E2kTOfZKMx">            </div>
+        
+           </form>         
+          </div>
+         </div>
+        </div>
+     </div>
+  </div>
+    </div>
+    
+            </section>
+                        
+          <div class="main-container container-fluid py-4">
+ 
+                        <div class="content">
+  
+        
+            <div class="main-body-wrapper">
+                   
+
+				<div class='main-body'>
+
+					<div class='page-title-wrapper'>
+						<div class="container-fluid mb-40 text-center">
+                   <div style="color:#999;text-align: center;font-size:12px">
+              <span>
+                 Advertisements
+         </span>
+       </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- freesvg-728 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4767662663033227"
+     data-ad-slot="5687551507"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+			
+
+					</div>
+<h2>Santa Claus Vector Art</h2> 
+					<div class='row-fluid detail-wrapper'>
+
+            <div class='main-image'> 
+							<div class='main-image-photo text-center'>
+                
+            <div itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop="license" content="https://creativecommons.org/publicdomain/zero/1.0/">
+                <meta itemprop="description" content="Download this free SVG -  Santa Claus Vector Art">
+
+                <meta itemprop="acquireLicensePage" content="https://creativecommons.org/publicdomain/zero/1.0/">
+                <meta itemprop="isAccessibleForFree" content="true">
+                <meta itemprop="isFamilyFriendly" content="true">
+                <meta itemprop="representativeOfPage" content="true">
+                <meta itemprop="thumbnailUrl" content="https://freesvg.org/img/1290413761.png">
+                <meta itemprop="contentUrl" content="https://freesvg.org/santa-claus-vector-art">
+                <meta itemprop="caption" content=" Santa Claus Vector Art">
+              
+            </div>
+
+                
+                
+                
+                
+                
+      
+  <img itemprop="contentUrl" src="https://freesvg.org/img/1290413761.png" alt="Santa Claus Vector Art" class='vec_veliki'>
+
+							
+							</div>
+  
+           	<div class="download">
+						  <a href="/download/2932" class="btn btn-green btn-lg">
+									Download SVG								</a></div>          
+              <div class="download">
+							 <a href="https://freesvg.org/converts/2932/2400" class="btn btn-blue btn-sm pt-2 pb-2">
+                 Large PNG		<small>2400px	</small>	</a>
+              <a href="https://freesvg.org/converts/2932/300" class="btn btn-blue btn-sm pt-2 pb-2">
+									Small PNG		<small>300px	</small>					</a>
+                </div>
+          
+              
+							</div>
+					
+<div class="sponsored-main-detail">
+							<div class="istock-main-detail">
+								<div class="istock">
+									<div class="istock-header"><img src="/img/sponsor_shutterstock.png" alt="">
+										<p>
+                      <a style="color:#1a1a1a;text-decoration: underline" href="https://shutterstock.7eer.net/c/2022575/919290/1305" target="_top" id="919290">10% off all Shutterstock plans with code SVG10	</a>	</p>
+										<div class="clearfix"></div>
+									</div>
+									<div class="istock-img">
+		                 
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D756111241" > 
+      <div style="max-width:150px; height:43px; overflow:hidden; background-image: url('https://thumb7.shutterstock.com/thumb_large/954646/756111241/stock-vector-set-of-cartoon-christmas-illustrations-isolated-on-white-funny-happy-santa-claus-character-with-756111241.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1797078253" > 
+      <div style="max-width:150px; height:100px; overflow:hidden; background-image: url('https://thumb1.shutterstock.com/thumb_large/167735132/1797078253/stock-vector-merry-christmas-and-happy-new-year-greeting-card-with-cute-santa-claus-deer-and-snowman-1797078253.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1706074462" > 
+      <div style="max-width:150px; height:100px; overflow:hidden; background-image: url('https://thumb9.shutterstock.com/thumb_large/167735132/1706074462/stock-vector-covid-and-social-distancing-infographic-with-cute-christmas-cartoon-character-santa-claus-1706074462.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1811664685" > 
+      <div style="max-width:150px; height:59px; overflow:hidden; background-image: url('https://thumb9.shutterstock.com/thumb_large/230850555/1811664685/stock-vector-cute-doodle-santa-claus-and-friends-for-christmas-day-with-watercolor-illustration-1811664685.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1217180842" > 
+      <div style="max-width:150px; height:129px; overflow:hidden; background-image: url('https://thumb9.shutterstock.com/thumb_large/4067515/1217180842/stock-vector-collection-of-red-santa-claus-hats-isolated-on-gray-background-set-vector-realistic-illustration-1217180842.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D515263291" > 
+      <div style="max-width:150px; height:150px; overflow:hidden; background-image: url('https://thumb7.shutterstock.com/thumb_large/3159602/515263291/stock-vector-santa-claus-hat-and-beard-515263291.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1543591220" > 
+      <div style="max-width:150px; height:51px; overflow:hidden; background-image: url('https://thumb1.shutterstock.com/thumb_large/3193562/1543591220/stock-vector-santa-claus-with-a-huge-bag-on-the-run-to-delivery-christmas-gifts-at-snow-fall-merry-christmas-1543591220.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1819121678" > 
+      <div style="max-width:150px; height:150px; overflow:hidden; background-image: url('https://thumb9.shutterstock.com/thumb_large/180519646/1819121678/stock-vector-red-santa-claus-hat-and-medical-face-mask-for-christmas-holidays-gradient-mesh-details-d-medical-1819121678.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                   
+<div class="ss-photo">
+         <div class="photo-wrap">
+    <a target="_blank" href="https://shutterstock.7eer.net/P9oaj?subId1=freesvg&amp;u=https%3A%2F%2Fwww.shutterstock.com%2Fpic.mhtml%3Fid%3D1827103535" > 
+      <div style="max-width:150px; height:107px; overflow:hidden; background-image: url('https://thumb9.shutterstock.com/thumb_large/527806/1827103535/stock-vector-vector-illustration-of-santa-clause-and-reindeer-wearing-a-face-mask-during-the-pandemic-1827103535.jpg')"></div></a>
+  </div>
+</div>		
+                    
+                    
+             
+   
+                                        <div class="clearfix"></div>
+										</div>
+								
+									<div class="clearfix"></div>
+								</div>
+							</div>
+  	      	<div class="clearfix"></div>
+				
+						</div>
+						<div class='photo-details'>
+                         	<div class='row mb-5'>
+								<div class='col-sm-12'>
+							<h4>Share</h4>
+ <div class="footer-social-big mt-20 mb-20 panel"   data-id="2932" >
+             <ul> 
+        <li class="facebook mr-5"><a href="#" onclick="    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;"  alt="FB"><i class="fa fa-facebook"> </i><span>Facebook</span></a> </li>
+              <li class="pinterest mr-5"><a href="//pinterest.com/pin/create/button/?url=https%3A%2F%2Ffreesvg.org%2Fsanta-claus-vector-art&media=https%3A%2F%2Ffreesvg.org%2Fimg%2F1290413761.png&description=Santa Claus Vector Art" data-pin-do="buttonPin" data-pin-config="none" > <i class="fa fa-pinterest"> </i><span>Pinterest</span> </a></li>
+                 <li class="twitter mr-5"><a href="https://twitter.com/share?text=https://freesvg.org/santa-claus-vector-art"> <i class="fa fa-twitter"> </i><span>Twitter</span> </a></li>
+                    <li class="like mr-5"><a  >    <i id="like2932" class="fa fa-heart "></i> </a>  <span id="like2932-bs3">0</span></li>
+               <div class="like-btn">
+                                             
+                                            </div>
+           
+             </ul>
+           
+           </div>
+								</div>
+							</div>
+							<div class='row'>
+								<div class='col-sm-12'>
+									<h4>Description </h4>
+									<p>
+										Vector graphics of Santa Claus. Old man in Santa Claus suit.
+									</p>
+								</div>
+							</div>
+							<div class='row'>
+					
+							</div>
+							<div class='row'>
+								<div class='col-sm-12'>
+									<h4>License</h4>
+									<p>
+                     
+									<a   about="https://freesvg.org/img/1290413761.png" rel="license" href="https://creativecommons.org/licenses/publicdomain/"  target="_blank">Public Domain</a></p>	
+								</div>
+							</div>
+							
+						
+							<div class='row'>
+
+								<div class="col-lg-6">
+									<h4>More about SVG</h4>
+									<p><i class="fa fa-eye"></i>
+									Size	0.03 MB</p>
+									<p><i class="fa fa-calendar"></i>
+							 	Date:	18/12/2013									</p>
+									<p>
+							 	<i class="fa fa-download"></i> No. of downloads:	52								</p>
+              
+										
+								</div> 
+								<div class="col-lg-6">
+									<h4> SVG published by</h4>
+									<p>
+                    <a href="https://freesvg.org/by/OpenClipart">	OpenClipart			</a>				</p>
+                  									<p>
+                       <p>  	<i class="fa fa-key"></i> SVG ID: 2932					</p>
+								</div>
+                
+							</div
+             
+						
+						
+							<div class='row single-tags'>
+								<div class='col-sm-12'>
+									<h4>Tags</h4>
+									<div class='single-photo-tags'>
+									                      <span><a  href="https://freesvg.org/tag/beard">beard</a></span>
+                                      <span><a  href="https://freesvg.org/tag/Christmas">Christmas</a></span>
+                                      <span><a  href="https://freesvg.org/tag/claus">claus</a></span>
+                                      <span><a  href="https://freesvg.org/tag/clip%20art">clip art</a></span>
+                                      <span><a  href="https://freesvg.org/tag/clipart">clipart</a></span>
+                                      <span><a  href="https://freesvg.org/tag/old%20man">old man</a></span>
+                                      <span><a  href="https://freesvg.org/tag/Santa">Santa</a></span>
+                                      <span><a  href="https://freesvg.org/tag/Santa%20Claus">Santa Claus</a></span>
+                                      <span><a  href="https://freesvg.org/tag/Xmas">Xmas</a></span>
+                  									</div>
+								</div>
+							</div>
+                						</div>
+
+					</div>
+					<div class='clearfix'></div>
+
+
+
+					<div id='photos' class='related-photos'>
+
+						<h3> Related SVG images</h3>
+					
+            
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santas-sleigh">
+                                                                                            <img src="/storage/img/thumb/santasleigh.png" alt="Santa&#039;s sleigh"  title="Santa&#039;s sleigh">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-beard-frame">
+                                                                                            <img src="/storage/img/thumb/1577087451santabeard-frame-1918.png" alt="Santa Beard Frame"  title="Santa Beard Frame">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-frame-colour">
+                                                                                            <img src="/storage/img/thumb/1577169171santapaperframe-colour.png" alt="Santa frame - Colour"  title="Santa frame - Colour">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="stephantom-santa-hat">
+                                                                                            <img src="/storage/img/thumb/stephantom-Santa-Hat.png" alt="Santa Hat"  title="Santa Hat">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="the-martin-santa-hat">
+                                                                                            <img src="/storage/img/thumb/The-Martin-Santa-Hat.png" alt="The Martin Santa Hat"  title="The Martin Santa Hat">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="cartoon-santa-in-a-chimney">
+                                                                                            <img src="/storage/img/thumb/1576836774kablam_Santa_UPSIDEDOWN_chimney.png" alt="Cartoon Santa in a Chimney"  title="Cartoon Santa in a Chimney">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="christmas-fireplace-vector">
+                                                                                            <img src="/storage/img/thumb/chimenea.png" alt="Christmas fireplace vector"  title="Christmas fireplace vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="greeting-card-with-santa">
+                                                                                            <img src="/storage/img/thumb/1418034842.png" alt="Greeting card with Santa"  title="Greeting card with Santa">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1537262297">
+                                                                                            <img src="/storage/img/thumb/1537262297.png" alt="Santa Face"  title="Santa Face">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="retro-santa-and-elf">
+                                                                                            <img src="/storage/img/thumb/1576837862retrosantaandelf.png" alt="Retro Santa and Elf"  title="Retro Santa and Elf">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-face-vector">
+                                                                                            <img src="/storage/img/thumb/zeimusu_Santa_face.png" alt="Santa face vector"  title="Santa face vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="dancing-santa-vector-art">
+                                                                                            <img src="/storage/img/thumb/johnny_automatic_dancing_santa.png" alt="Dancing Santa Vector Art"  title="Dancing Santa Vector Art">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-holds-a-page-from-corner-vector-drawing">
+                                                                                            <img src="/storage/img/thumb/santa_peeks_around_corner.png" alt="Santa holds a page from corner vector drawing"  title="Santa holds a page from corner vector drawing">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1542412473">
+                                                                                            <img src="/storage/img/thumb/1542412473.png" alt="Santa Waving Frame"  title="Santa Waving Frame">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1542412483">
+                                                                                            <img src="/storage/img/thumb/1542412483.png" alt="Santa Waving Frame Variation 2"  title="Santa Waving Frame Variation 2">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1544648590">
+                                                                                            <img src="/storage/img/thumb/1544648590.png" alt="When Santa Goes Marching In"  title="When Santa Goes Marching In">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1544648608">
+                                                                                            <img src="/storage/img/thumb/1544648608.png" alt="When Santa Goes Marching In Prismatic"  title="When Santa Goes Marching In Prismatic">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1544648784">
+                                                                                            <img src="/storage/img/thumb/1544648784.png" alt="Santa And His Reindeer Maelstrom Prismatic"  title="Santa And His Reindeer Maelstrom Prismatic">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1545203458">
+                                                                                            <img src="/storage/img/thumb/1545203458.png" alt="Stylized Santa and Reindeer"  title="Stylized Santa and Reindeer">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="1550419489">
+                                                                                            <img src="/storage/img/thumb/1550419489.png" alt="Giant Santa"  title="Giant Santa">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-vector">
+                                                                                            <img src="/storage/img/thumb/Santa_1_by_Merlin2525.png" alt="Santa Claus vector"  title="Santa Claus vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="cartoon-vector-graphics-of-smiling-christmas-santa">
+                                                                                            <img src="/storage/img/thumb/zeimusu-Santa-face.png" alt="Cartoon vector graphics of smiling Christmas Santa"  title="Cartoon vector graphics of smiling Christmas Santa">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-outline-vector">
+                                                                                            <img src="/storage/img/thumb/Santa_1_Outline_by_Merlin2525.png" alt="Santa Claus outline vector"  title="Santa Claus outline vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-side-profile-in-color-vector-drawing">
+                                                                                            <img src="/storage/img/thumb/santahead-colour.png" alt="Santa Claus side profile in color vector drawing"  title="Santa Claus side profile in color vector drawing">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="vector-image-of-old-santa-holds-a-tree-and-gifts">
+                                                                                            <img src="/storage/img/thumb/santaholdsatree.png" alt="Vector image of old Santa holds a tree and gifts"  title="Vector image of old Santa holds a tree and gifts">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-with-beard-vector-image">
+                                                                                            <img src="/storage/img/thumb/zeimusu-Classic-Santa.png" alt="Santa with beard vector image"  title="Santa with beard vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-with-huge-beard-vector-illustration">
+                                                                                            <img src="/storage/img/thumb/1381468764.png" alt="Santa with huge beard vector illustration"  title="Santa with huge beard vector illustration">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santas-face-in-a-frame-vector-graphics">
+                                                                                            <img src="/storage/img/thumb/santacirclehead.png" alt="Santa&#039;s face in a frame vector graphics"  title="Santa&#039;s face in a frame vector graphics">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="line-art-vector-drawing-of-santa-claus">
+                                                                                            <img src="/storage/img/thumb/zeimusu-Santa-line-art.png" alt="Line art vector  drawing of Santa Claus"  title="Line art vector  drawing of Santa Claus">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-and-his-wife">
+                                                                                            <img src="/storage/img/thumb/1549938560.png" alt="Santa Claus and his Wife"  title="Santa Claus and his Wife">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="old-santa-with-frame">
+                                                                                            <img src="/storage/img/thumb/1577120923santaandsmallframe-ver4.png" alt="Old Santa with Frame"  title="Old Santa with Frame">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-head-vector-outline">
+                                                                                            <img src="/storage/img/thumb/johnny_automatic_Santa_head.png" alt="Santa head vector outline"  title="Santa head vector outline">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-exiting-routine-vector-image">
+                                                                                            <img src="/storage/img/thumb/santa-claus.png" alt="Santa Claus exiting routine vector image"  title="Santa Claus exiting routine vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="cartoon-santa-claus-vector">
+                                                                                            <img src="/storage/img/thumb/crazy-xmas-man.png" alt="Cartoon Santa Claus vector"  title="Cartoon Santa Claus vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="vector-illustration-of-santa-and-raindeer-on-white-background">
+                                                                                            <img src="/storage/img/thumb/zeimusu-Santa-and-Reindeer.png" alt="Vector illustration of Santa and raindeer on white background"  title="Vector illustration of Santa and raindeer on white background">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="father-christmas">
+                                                                                            <img src="/storage/img/thumb/Anonymous-father-christmas.png" alt="Father Christmas"  title="Father Christmas">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="panda-in-santa-claus-suit-vector">
+                                                                                            <img src="/storage/img/thumb/santpanda.png" alt="Panda in Santa Claus suit vector"  title="Panda in Santa Claus suit vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-and-raindeer-color-vector-illustration">
+                                                                                            <img src="/storage/img/thumb/1385678152.png" alt="Santa and raindeer color vector illustration"  title="Santa and raindeer color vector illustration">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-and-his-toy-bag-vector">
+                                                                                            <img src="/storage/img/thumb/johnny_automatic_Santa_and_his_toy_bag.png" alt="Santa and his toy bag vector"  title="Santa and his toy bag vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="red-santa-claus-hat-vector">
+                                                                                            <img src="/storage/img/thumb/1291044673.png" alt="Red Santa Claus hat vector"  title="Red Santa Claus hat vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="hat-of-santa-claus-vector-image">
+                                                                                            <img src="/storage/img/thumb/Santas_Hat_by_Merlin2525.png" alt="Hat of Santa Claus vector image"  title="Hat of Santa Claus vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="mr-and-mrs-santa-claus">
+                                                                                            <img src="/storage/img/thumb/1576857904mrmrssantaclaus.png" alt="Mr and Mrs Santa Claus"  title="Mr and Mrs Santa Claus">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-and-reindeer-vector-image">
+                                                                                            <img src="/storage/img/thumb/Santa_and_Reindeer_Remix_by_Merlin2525.png" alt="Santa and Reindeer Vector Image"  title="Santa and Reindeer Vector Image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="sweet-santa-claus-vector">
+                                                                                            <img src="/storage/img/thumb/1290398369.png" alt="Sweet Santa Claus vector"  title="Sweet Santa Claus vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="cat-with-santa-claus-hat-vectopr">
+                                                                                            <img src="/storage/img/thumb/Cat_001_Face_Cartoon_with_Santa_hat.png" alt="Cat with Santa Claus hat vectopr"  title="Cat with Santa Claus hat vectopr">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="funny-penguin-face-with-santa-claus-hat">
+                                                                                            <img src="/storage/img/thumb/Penguin_001_Head_Cartoon_with_Santa_hat.png" alt="Funny Penguin face with Santa Claus hat"  title="Funny Penguin face with Santa Claus hat">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-hat-vector-image">
+                                                                                            <img src="/storage/img/thumb/Hat_of_Santa.png" alt="Santa Claus hat vector image"  title="Santa Claus hat vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-and-raindeer-in-the-sun-vector-drawing">
+                                                                                            <img src="/storage/img/thumb/santa_y_rodolfo.png" alt="Santa and raindeer in the sun vector drawing"  title="Santa and raindeer in the sun vector drawing">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="johnny-automatic-rolly-polly-santa">
+                                                                                            <img src="/storage/img/thumb/johnny-automatic-rolly-polly-Santa.png" alt="rolly-polly Santa"  title="rolly-polly Santa">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="overweight-santa-claus-vector-drawing">
+                                                                                            <img src="/storage/img/thumb/cartoonsanta.png" alt="Overweight Santa Claus vector drawing"  title="Overweight Santa Claus vector drawing">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="merry-christmas-santa-in-french-vector-image">
+                                                                                            <img src="/storage/img/thumb/happysanta-french.png" alt="Merry Christmas Santa in French vector image"  title="Merry Christmas Santa in French vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="short-fat-santa">
+                                                                                            <img src="/storage/img/thumb/shortfatsanta.png" alt="Short fat santa"  title="Short fat santa">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="teddy-bear-with-christmas-hat-vector-image">
+                                                                                            <img src="/storage/img/thumb/Bear_003_Head_Cartoon_Brown_with_Santa_hat.png" alt="Teddy bear with Christmas hat vector image"  title="Teddy bear with Christmas hat vector image">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+                 
+            <div class="photo text-center">
+              <div class="photo-thumbnail-wrap">
+                
+                                  <a href="santa-claus-cap-vector">
+                                                                                            <img src="/storage/img/thumb/artmaster_santas_cap.png" alt="Santa Claus Cap Vector"  title="Santa Claus Cap Vector">
+                                                                                    
+                  
+                    
+                </a>
+                               </div></div>
+      
+            
+            
+
+
+
+							<div class='clearfix'></div>
+					</div>
+				
+				</div>
+
+
+
+            </div>
+          <div class="sidebar-wrapper">
+      
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- freesvg vertical -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4767662663033227"
+     data-ad-slot="2867614028"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+              <div class="sidebar-element tags page-tags">
+                      <h3>Related tags</h3>
+                      <div class="tags-wrapper">
+                   <span><a href="/tag/animal">animal</a></span>
+          <span><a href="/tag/animals">animals</a></span>
+          <span><a href="/tag/anta Claus">anta Claus</a></span>
+          <span><a href="/tag/art">art</a></span>
+          <span><a href="/tag/bag">bag</a></span>
+          <span><a href="/tag/bear">bear</a></span>
+          <span><a href="/tag/beard">beard</a></span>
+          <span><a href="/tag/beautiful">beautiful</a></span>
+          <span><a href="/tag/bell">bell</a></span>
+          <span><a href="/tag/Bild">Bild</a></span>
+          <span><a href="/tag/black">black</a></span>
+          <span><a href="/tag/black and white">black and white</a></span>
+          <span><a href="/tag/bonnet">bonnet</a></span>
+          <span><a href="/tag/cap">cap</a></span>
+          <span><a href="/tag/card">card</a></span>
+          <span><a href="/tag/carnival">carnival</a></span>
+          <span><a href="/tag/carte">carte</a></span>
+          <span><a href="/tag/cartoon">cartoon</a></span>
+          <span><a href="/tag/cat">cat</a></span>
+          <span><a href="/tag/celebrate">celebrate</a></span>
+          <span><a href="/tag/celebration">celebration</a></span>
+          <span><a href="/tag/celebrations">celebrations</a></span>
+          <span><a href="/tag/chain">chain</a></span>
+          <span><a href="/tag/chimney">chimney</a></span>
+          <span><a href="/tag/Christmas">Christmas</a></span>
+          <span><a href="/tag/chubby">chubby</a></span>
+          <span><a href="/tag/circle">circle</a></span>
+          <span><a href="/tag/claus">claus</a></span>
+          <span><a href="/tag/clause">clause</a></span>
+          <span><a href="/tag/clauss">clauss</a></span>
+          <span><a href="/tag/clip art">clip art</a></span>
+          <span><a href="/tag/clip-art">clip-art</a></span>
+          <span><a href="/tag/clipart">clipart</a></span>
+          <span><a href="/tag/collection">collection</a></span>
+          <span><a href="/tag/color">color</a></span>
+          <span><a href="/tag/colors">colors</a></span>
+          <span><a href="/tag/colour">colour</a></span>
+          <span><a href="/tag/comic">comic</a></span>
+          <span><a href="/tag/contour">contour</a></span>
+          <span><a href="/tag/couple">couple</a></span>
+          <span><a href="/tag/dancing">dancing</a></span>
+          <span><a href="/tag/de">de</a></span>
+          <span><a href="/tag/december">december</a></span>
+          <span><a href="/tag/decorated">decorated</a></span>
+          <span><a href="/tag/decoration">decoration</a></span>
+          <span><a href="/tag/decorations">decorations</a></span>
+          <span><a href="/tag/door">door</a></span>
+          <span><a href="/tag/down">down</a></span>
+          <span><a href="/tag/drawing">drawing</a></span>
+          <span><a href="/tag/elf">elf</a></span>
+          <span><a href="/tag/elfs">elfs</a></span>
+          <span><a href="/tag/elves">elves</a></span>
+          <span><a href="/tag/externalsource">externalsource</a></span>
+          <span><a href="/tag/face">face</a></span>
+          <span><a href="/tag/fat">fat</a></span>
+          <span><a href="/tag/festive">festive</a></span>
+          <span><a href="/tag/fire">fire</a></span>
+          <span><a href="/tag/fireplace">fireplace</a></span>
+          <span><a href="/tag/font">font</a></span>
+          <span><a href="/tag/frame">frame</a></span>
+          <span><a href="/tag/frantic">frantic</a></span>
+          <span><a href="/tag/french">french</a></span>
+          <span><a href="/tag/funny">funny</a></span>
+          <span><a href="/tag/giant">giant</a></span>
+          <span><a href="/tag/gift">gift</a></span>
+          <span><a href="/tag/graphics">graphics</a></span>
+          <span><a href="/tag/greeting">greeting</a></span>
+          <span><a href="/tag/greeting card">greeting card</a></span>
+          <span><a href="/tag/grin">grin</a></span>
+          <span><a href="/tag/hat">hat</a></span>
+          <span><a href="/tag/head">head</a></span>
+          <span><a href="/tag/heart">heart</a></span>
+          <span><a href="/tag/holiday">holiday</a></span>
+          <span><a href="/tag/holidays">holidays</a></span>
+          <span><a href="/tag/holly">holly</a></span>
+          <span><a href="/tag/house">house</a></span>
+          <span><a href="/tag/huge">huge</a></span>
+          <span><a href="/tag/illustration">illustration</a></span>
+          <span><a href="/tag/Jesus">Jesus</a></span>
+          <span><a href="/tag/jolly">jolly</a></span>
+          <span><a href="/tag/Kringle">Kringle</a></span>
+          <span><a href="/tag/language">language</a></span>
+          <span><a href="/tag/line">line</a></span>
+          <span><a href="/tag/line-art">line-art</a></span>
+          <span><a href="/tag/lion">lion</a></span>
+          <span><a href="/tag/monochrome">monochrome</a></span>
+          <span><a href="/tag/mosaic">mosaic</a></span>
+          <span><a href="/tag/mouth">mouth</a></span>
+          <span><a href="/tag/mustache">mustache</a></span>
+          <span><a href="/tag/nicholas">nicholas</a></span>
+          <span><a href="/tag/night">night</a></span>
+          <span><a href="/tag/noel">noel</a></span>
+          <span><a href="/tag/old">old</a></span>
+          <span><a href="/tag/old man">old man</a></span>
+          <span><a href="/tag/ornament">ornament</a></span>
+          <span><a href="/tag/outline">outline</a></span>
+          <span><a href="/tag/page">page</a></span>
+          <span><a href="/tag/panda">panda</a></span>
+          <span><a href="/tag/paper">paper</a></span>
+          <span><a href="/tag/pattern">pattern</a></span>
+                    
+          </div>
+     
+    </div>
+
+
+
+                   
+                
+             <h3 class="content-heading">More from  <a href="https://freesvg.org/by/OpenClipart">	OpenClipart			</a>		</h3>
+    <div class="clearfix">
+        <div class="more-from-site">
+                          <a href="pb048"><img src="https://freesvg.org/img/pb048.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb048"></a>
+                          <a href="pb047"><img src="https://freesvg.org/img/pb047.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb047"></a>
+                          <a href="pb046"><img src="https://freesvg.org/img/pb046.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb046"></a>
+                          <a href="pb045"><img src="https://freesvg.org/img/pb045.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb045"></a>
+                          <a href="pb044"><img src="https://freesvg.org/img/pb044.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb044"></a>
+                          <a href="pb043"><img src="https://freesvg.org/img/pb043.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb043"></a>
+                          <a href="pb042"><img src="https://freesvg.org/img/pb042.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb042"></a>
+                          <a href="pb041"><img src="https://freesvg.org/img/pb041.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb041"></a>
+                          <a href="pb040"><img src="https://freesvg.org/img/pb040.png?w=80&amp;h=80&amp;fit=fill&amp;fm=png"  alt="pb040"></a>
+                    </div>
+    </div>         
+
+    
+
+                   
+        </div>
+        </div>
+<div class="clearfix"></div>
+     
+    </div>
+        </div><!--#app-->
+ <footer class="footer page-section-pt black-bg">
+ <div class="container">
+  <div class="row">
+      <div class="col-lg-3  col-sm-6 xs-mb-30">
+      <div class="footer-hedding">
+        <h6 class="text-white mb-30 mt-10 text-uppercase">Share</h6>
+         <div class="footer-social-big">
+             <ul> 
+               <li class="facebook"><a href="#" onclick="    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;"  alt="FB"> <i class="fa fa-facebook"> </i><span>Facebook</span></a> </li>
+              <li class="pinterest"><a href="//pinterest.com/pin/create/button/?url=https%3A%2F%2Ffreesvg.org%2Fsanta-claus-vector-art&media=https%3A%2F%2Ffreesvg.org%2Fimg%2Fmain_bg.jpg&description=Rebuilding open clip art database and community" data-pin-do="buttonPin" data-pin-config="none" > <i class="fa fa-pinterest"> </i><span>Pinterest</span> </a></li>
+                 <li class="twitter"><a href="https://twitter.com/share?text=https://freesvg.org/santa-claus-vector-art"> <i class="fa fa-twitter"> </i><span>Twitter</span> </a></li>
+            
+             </ul>
+            
+           </div>
+      </div>
+    </div>
+
+        <div class="col-lg-2 col-sm-6 sm-mb-30">
+      <div class="footer-useful-link footer-hedding">
+        <h6 class="text-white mb-30 mt-10 text-uppercase">Useful links</h6>
+        <ul>
+    
+                        <li><a rel="nofollow" href="https://inkscape.org/">Inkscape</a> </li>
+                        <li><a   rel="nofollow" href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">What is SVG</a> </li>
+                        <li><a rel="nofollow" href="https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html">SVG Edit</a> </li>
+                        <li><a  rel="nofollow"  href="http://www.drawsvg.org/drawsvg.html"> Draw SVG</a> </li>
+           <li><a rel="nofollow" href="https://www.w3.org/Graphics/SVG/">SVG Logo</a> </li>
+
+								
+                
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6 sm-mb-30 xs-mb-30">
+      <h6 class="text-white mb-30 mt-10 text-uppercase">About us</h6>
+      <p>FreeSVG.org offers free vector images in SVG format with Creative Commons 0 license (public domain).
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+<br/>It is absolutely not required, but if you like this website, any mention of or link back is highly appreciated.</p>
+    
+       </div>
+    
+    <div class="col-lg-2 col-sm-6 sm-mb-30">
+      <div class="footer-useful-link footer-hedding">
+        <h6 class="text-white mb-30 mt-10 text-uppercase">Site links</h6>
+        <ul>
+         <li><a href="/">Home</a></li>
+            <li><a href="/pages/about-us">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a  rel="nofollow" href="https://creativecommons.org/publicdomain/zero/1.0/ " target="_blank">Public domain license</a></li>
+          <li><a  rel="nofollow" href="https://forum.freesvg.org " target="_blank">Forum
+        
+      </div>
+    </div>
+ <div class="col-lg-2 col-sm-6 sm-mb-30">
+<a href="https://shutterstock.7eer.net/c/2022575/953993/1305" target="_top" id="931949"><img src="//a.impactradius-go.com/display-ad/1305-931949" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://shutterstock.7eer.net/i/2022575/931949/1305" style="position:absolute;visibility:hidden;" border="0" />       </div>
+      <div class="footer-widget mt-60 ">
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+           <p class="mt-15"> 
+          <a href="#"> Free SVG </a> 2019-2020 </p>
+          </div>
+          <div class="col-lg-6 col-md-6 ">
+            <div class="footer-social mt-10">
+              <ul class="text-left text-md-right">
+                   <li class="list-inline-item"><a href="/pages/api-and-usage">API</a> </li>
+                    <li class="list-inline-item"><a href="/pages/terms-and-conditions">Terms and conditions </a> </li>
+             
+                 <li class="list-inline-item"><a href="/pages/privacy-policy">Privacy Policy </a> </li>
+              </ul>
+              </div>
+          </div>
+        </div>    
+      </div>
+  </div>
+</footer>        <!-- Scripts -->
+         <script defer src="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+                <script src="https://freesvg.org/js/frontend.js?id=fd71e92afda009fad5db"></script>
+                <script src="https://freesvg.org/js/jquerysession.min.js"></script>
+        <script src="https://freesvg.org/js/frontend/frontend.min.js"></script>
+        <script src="https://freesvg.org/js/select2/select2.min.js"></script>
+<script src="https://freesvg.org/js/share.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {     
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+      
+        $('.like').click(function(){    
+            var id = $(this).parents(".panel").data('id');
+            var c = $('#like'+id+'-bs3').html();
+          console.log(c);
+            var cObjId =id;
+            var cObj = $(this);
+             	poruka = $('.like-btn');
+          
+            $.ajax({
+               type:'POST',
+               url:'/like',
+               data:{id:id},
+               success:function(data){
+               
+                 if(data.success<1){
+                
+                    $('#like'+cObjId+'-bs3').html(parseInt(c)-1);
+                    $(cObj).removeClass("like-post");
+                  }else if(data.success>0){
+           
+                    $('#like'+cObjId+'-bs3').html(parseInt(c)+1);
+                    $(cObj).addClass("like-post");
+                  }
+                 else{
+             poruka.addClass("alert alert-error");
+             poruka.html(data.error).slideDown(1000);
+                  
+                  }
+               },
+               
+            });
+
+
+        });      
+      
+            $('.claim').click(function(){    
+            var id = $(this).attr('id');
+            var user=$(this).attr('user');
+            nota = $('#nota');
+             console.log(user);
+            var cObjId =id;
+            var cObj = $(this);
+                    
+            $.ajax({
+               type:'POST',
+               url:'/claim',
+               data:{id:id,
+                     user:user},
+               success:function(data){
+                            
+                 nota.addClass("alert alert-success");
+                 nota.html(data.success).slideDown(1000);
+            
+               },
+               
+            });
+
+
+        });     
+
+                                   
+    }); 
+</script>
+<script>
+$(document).ready(function()
+{
+
+ 
+
+
+    $("#ajax-contact-form").submit(function(e){
+		
+     event.preventDefault();
+            	note = $('#note');
+            var formData = {
+                email     : $('input[name=email]').val(),
+                 _token    : $('input[name=_token]').val()
+                    };
+
+            $.ajax({
+                type     : "POST",
+                url:   '/newsletter',
+                data     : formData,
+                cache    : false,
+
+                success  : function(data) {
+                 note.addClass("alert alert-success");
+                 note.html(data.success).slideDown(1000);
+                }
+            });
+
+
+            return false;
+
+        });
+  
+ 
+
+
+});
+
+</script> 
+        
+              <div class="js-cookie-consent cookie-consent">
+
+    <span class="cookie-consent__message">
+        Your experience on this site will be improved by allowing cookies.
+    </span>
+
+    <button class="js-cookie-consent-agree cookie-consent__agree btn btn-green btn-lg">
+        Allow cookies
+    </button>
+
+</div>
+
+    <script>
+
+        window.laravelCookieConsent = (function () {
+
+            const COOKIE_VALUE = 1;
+            const COOKIE_DOMAIN = 'freesvg.org';
+
+            function consentWithCookies() {
+                setCookie('laravel_cookie_consent', COOKIE_VALUE, 7300);
+                hideCookieDialog();
+            }
+
+            function cookieExists(name) {
+                return (document.cookie.split('; ').indexOf(name + '=' + COOKIE_VALUE) !== -1);
+            }
+
+            function hideCookieDialog() {
+                const dialogs = document.getElementsByClassName('js-cookie-consent');
+
+                for (let i = 0; i < dialogs.length; ++i) {
+                    dialogs[i].style.display = 'none';
+                }
+            }
+
+            function setCookie(name, value, expirationInDays) {
+                const date = new Date();
+                date.setTime(date.getTime() + (expirationInDays * 24 * 60 * 60 * 1000));
+                document.cookie = name + '=' + value
+                    + ';expires=' + date.toUTCString()
+                    + ';domain=' + COOKIE_DOMAIN
+                    + ';path=/';
+            }
+
+            if (cookieExists('laravel_cookie_consent')) {
+                hideCookieDialog();
+            }
+
+            const buttons = document.getElementsByClassName('js-cookie-consent-agree');
+
+            for (let i = 0; i < buttons.length; ++i) {
+                buttons[i].addEventListener('click', consentWithCookies);
+            }
+
+            return {
+                consentWithCookies: consentWithCookies,
+                hideCookieDialog: hideCookieDialog
+            };
+        })();
+    </script>
+
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"946c1418eb","applicationID":"382742389","transactionName":"M1AAYkRYXUBWWkcPWQoaI1VCUFxdGF9BCVgQUAxSGEpFVBlKWwlB","queueTime":0,"applicationTime":613,"atts":"HxcDFAxCTk4=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>
