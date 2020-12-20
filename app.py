@@ -77,12 +77,7 @@ def plot(list, numberal, email, dcode, lcode):
 
 def main_programm(DCODE, LCODE, DAY, MONTH, YEAR, EMAIL, numeral):
     import os
-    PATH = os.environ.get("CHROMEDRIVER_PATH")
-    options = webdriver.ChromeOptions()
-    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
+    PATH = "chromedriver.exe"
     DCODE = str(DCODE)
     LCODE = str(LCODE)
     DAYS = str(DAY)
@@ -93,8 +88,8 @@ def main_programm(DCODE, LCODE, DAY, MONTH, YEAR, EMAIL, numeral):
     DATE2 = DAYS +r"%2F" + MONTHS + r"%2F" + YEARS
     YBASE = f'https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin={DCODE}&originCountry=IN&destination={LCODE}&destinationCountry=IN&flight_depart_date={DATE2}&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-home'
     TBASE = f'https://www.makemytrip.com/flight/search?itinerary={DCODE}-{LCODE}-{DATE}&tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&ccde=IN&lang=eng'
-    DRIVER = webdriver.Chrome(executable_path=PATH, chrome_options=options)
-    D2 = webdriver.Chrome(executable_path=PATH, chrome_options=options)
+    DRIVER = webdriver.Chrome(executable_path=PATH)
+    D2 = webdriver.Chrome(executable_path=PATH)
     ALL_FLIGHTS = []
     UNNESCESARY = None
     DICT = {}
